@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "angular.js@1.8.3",
+      "destination": "Scripts/angular.js/"
+    },
+    {
+      "library": "ready.js@0.1.2",
+      "destination": "Scripts/ready.js/"
+    }
+  ]
+}

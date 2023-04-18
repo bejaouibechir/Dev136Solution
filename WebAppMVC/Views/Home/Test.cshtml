@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewBag.Title = "Test";
+}
+
+<h2>Ce ci est une page de Test</h2> @*Partie fixe avec du html*@
+
+<div class="row">
+    <button type="button" onclick="alert('Ce ci est un code javascript')">Cliquez moi</button>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+        </tr>
+    </thead>
+    <tbody>
+        @*Le Razor*@
+
+        @{
+            string[] people = { "Mark", "Jhon", "Laura","Antoine" };
+
+            for (int i = 0; i < 4; i++)
+            {
+                <tr>
+                    <th scope="row">@i</th>
+                    <td>@people[i]</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+
+

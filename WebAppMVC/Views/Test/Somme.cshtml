@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewBag.Title = "Somme";
+}
+
+<h2>Somme</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-horozontal">
+        <label for="fname">Operande 1:</label><br>
+        <input type="text" id="op1" name="op1"><br>
+        <label for="lname">Operande 2:</label><br>
+        <input type="text" id="op2" name="op2"><br><br>
+        <input type="submit" value="Submit">
+    </div>
+}
+
+
+@*Un formulaire avec du Html pure
+<form action="Somme" method="post">
+    <label for="fname">Operande 1:</label><br>
+    <input type="text" id="op1" name="op1" ><br>
+    <label for="lname">Operande 2:</label><br>
+    <input type="text" id="op2" name="op2"><br><br>
+    <input type="submit" value="Submit">
+</form>*@
+

@@ -1,0 +1,99 @@
+﻿@model WebAppMVC.Models.Customer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Customer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @*@Html.DisplayNameFor(model => model.companyname)*@
+            <span>Company name</span>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.companyname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contactname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contactname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.contacttitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contacttitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.city)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.city)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.region)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.region)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.postalcode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.postalcode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.country)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.country)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.phone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.phone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fax)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.custid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
