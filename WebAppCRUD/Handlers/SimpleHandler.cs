@@ -5,11 +5,14 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Web;
+using System.Web.Routing;
 
 namespace WebAppCRUD.Handlers
 {
     public class SimpleHandler : IHttpHandler
     {
+
+        public RequestContext Context { get; set; }
 
         string _connstring; 
         SqlConnection _connection;
@@ -17,8 +20,9 @@ namespace WebAppCRUD.Handlers
         SqlDataReader _reader;
         List<Employee> _employees;
 
-        public SimpleHandler()
+        public SimpleHandler(RequestContext context)
         {
+            Context = context;
             _connstring = ConfigurationManager
                 .ConnectionStrings["defaultconnection"].ConnectionString;
             _connection = new SqlConnection (_connstring);
@@ -31,7 +35,6 @@ namespace WebAppCRUD.Handlers
         public void ProcessRequest(HttpContext context)
         {
             
-
             _command = new SqlCommand("select [empid],[lastname],[firstname]," +
                 "[title] from [HR].[Employees]", _connection);
             _connection.Open();
@@ -76,8 +79,12 @@ namespace WebAppCRUD.Handlers
                                     </tr>");
             }
 
+            string content = tableheader 
+                + "\n" + tablebody.ToString()
+                + "\n" + tablefooter; 
+
             response.Write(tableheader);
-            response.Write(tablebody);
+            response.Write(tablebody.ToString());
             response.Write(tablefooter);
         }
     }

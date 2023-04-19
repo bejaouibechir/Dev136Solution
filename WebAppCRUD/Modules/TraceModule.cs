@@ -16,7 +16,7 @@ namespace WebAppCRUD.Modules
 
         public void Dispose()
         {
-           throw new NotImplementedException();
+           ;
         }
 
         public void Init(HttpApplication context) //Users,Requests, Responses,Coockies Sessions

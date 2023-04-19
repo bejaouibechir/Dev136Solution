@@ -127,6 +127,7 @@
     </Compile>
     <Compile Include="Handlers\Employee.cs" />
     <Compile Include="Handlers\SimpleHandler.cs" />
+    <Compile Include="Handlers\SimpleHandlerRoute.cs" />
     <Compile Include="Models\Categroy.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductContext.cs" />
