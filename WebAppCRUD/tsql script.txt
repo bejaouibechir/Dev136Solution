@@ -1,0 +1,64 @@
+﻿/*Utiliser ce script pour tester le SimpleHandler voir le dossier Handlers 
+ du projet WebAppCRUD*/
+
+CREATE DATABASE [TSQL]
+GO
+USE [TSQL]
+GO
+/****** Object:  Table [HR].[Employees]    Script Date: 19/04/2023 10:08:10 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [HR].[Employees](
+	[empid] [int] IDENTITY(1,1) NOT NULL,
+	[lastname] [nvarchar](20) NOT NULL,
+	[firstname] [nvarchar](10) NOT NULL,
+	[title] [nvarchar](30) NOT NULL,
+	[titleofcourtesy] [nvarchar](25) NOT NULL,
+	[birthdate] [datetime] NOT NULL,
+	[hiredate] [datetime] NOT NULL,
+	[address] [nvarchar](60) NOT NULL,
+	[city] [nvarchar](15) NOT NULL,
+	[region] [nvarchar](15) NULL,
+	[postalcode] [nvarchar](10) NULL,
+	[country] [nvarchar](15) NOT NULL,
+	[phone] [nvarchar](24) NOT NULL,
+	[mgrid] [int] NULL,
+ CONSTRAINT [PK_Employees] PRIMARY KEY CLUSTERED 
+(
+	[empid] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [HR].[Employees] ON 
+GO
+INSERT [HR].[Employees] ([empid], [lastname], [firstname], [title], [titleofcourtesy], [birthdate], [hiredate], [address], [city], [region], [postalcode], [country], [phone], [mgrid]) VALUES (1, N'Davis', N'Sara', N'CEO', N'Ms.', CAST(N'1958-12-08T00:00:00.000' AS DateTime), CAST(N'2002-05-01T00:00:00.000' AS DateTime), N'7890 - 20th Ave. E., Apt. 2A', N'Seattle', N'WA', N'10003', N'USA', N'(206) 555-0101', NULL)
+GO
+INSERT [HR].[Employees] ([empid], [lastname], [firstname], [title], [titleofcourtesy], [birthdate], [hiredate], [address], [city], [region], [postalcode], [country], [phone], [mgrid]) VALUES (2, N'Funk', N'Don', N'Vice President, Sales', N'Dr.', CAST(N'1962-02-19T00:00:00.000' AS DateTime), CAST(N'2002-08-14T00:00:00.000' AS DateTime), N'9012 W. Capital Way', N'Tacoma', N'WA', N'10001', N'USA', N'(206) 555-0100', 1)
+GO
+INSERT [HR].[Employees] ([empid], [lastname], [firstname], [title], [titleofcourtesy], [birthdate], [hiredate], [address], [city], [region], [postalcode], [country], [phone], [mgrid]) VALUES (3, N'Lew', N'Judy', N'Sales Manager', N'Ms.', CAST(N'1973-08-30T00:00:00.000' AS DateTime), CAST(N'2002-04-01T00:00:00.000' AS DateTime), N'2345 Moss Bay Blvd.', N'Kirkland', N'WA', N'10007', N'USA', N'(206) 555-0103', 2)
+GO
+INSERT [HR].[Employees] ([empid], [lastname], [firstname], [title], [titleofcourtesy], [birthdate], [hiredate], [address], [city], [region], [postalcode], [country], [phone], [mgrid]) VALUES (4, N'Peled', N'Yael', N'Sales Representative', N'Mrs.', CAST(N'1947-09-19T00:00:00.000' AS DateTime), CAST(N'2003-05-03T00:00:00.000' AS DateTime), N'5678 Old Redmond Rd.', N'Redmond', N'WA', N'10009', N'USA', N'(206) 555-0104', 3)
+GO
+INSERT [HR].[Employees] ([empid], [lastname], [firstname], [title], [titleofcourtesy], [birthdate], [hiredate], [address], [city], [region], [postalcode], [country], [phone], [mgrid]) VALUES (5, N'Buck', N'Sven', N'Sales Manager', N'Mr.', CAST(N'1965-03-04T00:00:00.000' AS DateTime), CAST(N'2003-10-17T00:00:00.000' AS DateTime), N'8901 Garrett Hill', N'London', NULL, N'10004', N'UK', N'(71) 234-5678', 2)
+GO
+INSERT [HR].[Employees] ([empid], [lastname], [firstname], [title], [titleofcourtesy], [birthdate], [hiredate], [address], [city], [region], [postalcode], [country], [phone], [mgrid]) VALUES (6, N'Suurs', N'Paul', N'Sales Representative', N'Mr.', CAST(N'1973-07-02T00:00:00.000' AS DateTime), CAST(N'2003-10-17T00:00:00.000' AS DateTime), N'3456 Coventry House, Miner Rd.', N'London', NULL, N'10005', N'UK', N'(71) 345-6789', 5)
+GO
+INSERT [HR].[Employees] ([empid], [lastname], [firstname], [title], [titleofcourtesy], [birthdate], [hiredate], [address], [city], [region], [postalcode], [country], [phone], [mgrid]) VALUES (7, N'King', N'Russell', N'Sales Representative', N'Mr.', CAST(N'1970-05-29T00:00:00.000' AS DateTime), CAST(N'2004-01-02T00:00:00.000' AS DateTime), N'6789 Edgeham Hollow, Winchester Way', N'London', NULL, N'10002', N'UK', N'(71) 123-4567', 5)
+GO
+INSERT [HR].[Employees] ([empid], [lastname], [firstname], [title], [titleofcourtesy], [birthdate], [hiredate], [address], [city], [region], [postalcode], [country], [phone], [mgrid]) VALUES (8, N'Cameron', N'Maria', N'Sales Representative', N'Ms.', CAST(N'1968-01-09T00:00:00.000' AS DateTime), CAST(N'2004-03-05T00:00:00.000' AS DateTime), N'4567 - 11th Ave. N.E.', N'Seattle', N'WA', N'10006', N'USA', N'(206) 555-0102', 3)
+GO
+INSERT [HR].[Employees] ([empid], [lastname], [firstname], [title], [titleofcourtesy], [birthdate], [hiredate], [address], [city], [region], [postalcode], [country], [phone], [mgrid]) VALUES (9, N'Dolgopyatova', N'Zoya', N'Sales Representative', N'Ms.', CAST(N'1976-01-27T00:00:00.000' AS DateTime), CAST(N'2004-11-15T00:00:00.000' AS DateTime), N'1234 Houndstooth Rd.', N'London', NULL, N'10008', N'UK', N'(71) 456-7890', 5)
+GO
+SET IDENTITY_INSERT [HR].[Employees] OFF
+GO
+ALTER TABLE [HR].[Employees]  WITH CHECK ADD  CONSTRAINT [FK_Employees_Employees] FOREIGN KEY([mgrid])
+REFERENCES [HR].[Employees] ([empid])
+GO
+ALTER TABLE [HR].[Employees] CHECK CONSTRAINT [FK_Employees_Employees]
+GO
+ALTER TABLE [HR].[Employees]  WITH CHECK ADD  CONSTRAINT [CHK_birthdate] CHECK  (([birthdate]<=getdate()))
+GO
+ALTER TABLE [HR].[Employees] CHECK CONSTRAINT [CHK_birthdate]
+GO

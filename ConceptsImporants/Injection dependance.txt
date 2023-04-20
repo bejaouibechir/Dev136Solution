@@ -1,0 +1,56 @@
+﻿Code appelant:
+    string input = string.Empty;
+
+    StoreInFileService storeInFileService = new StoreInFileService();
+
+    StoreEventLogService storeEventLogService = new StoreEventLogService();
+
+    Console.WriteLine("Si vous voulez stocker les données dans un fichier tapez 1");
+            Console.WriteLine("Si vous voulez stocker les données dans un fichier de journalisation d'" +
+                " d'evenement  tapez 2");
+            input = Console.ReadLine();
+            if(input == "1") {
+                DataStore dataStore = new DataStore(storeInFileService);
+    dataStore.SaveData("Ce ci sont des données sauvegardées"); 
+            }
+            else if (input == "2")
+{
+    DataStore dataStore = new DataStore(storeEventLogService);
+    dataStore.SaveData("Ce ci sont des données sauvegardées");
+}
+
+public interface IStoreService
+    {
+        void Store(string filePath, string content);
+    }
+
+    public class StoreInFileService : IStoreService
+    {
+        public void Store(string filePath, string content)
+        {
+            File.WriteAllText(filePath, content);
+        }
+    }
+
+    public class StoreEventLogService : IStoreService
+    {
+        public void Store(string filePath, string content)
+        {
+            EventLog.WriteEntry(filePath, content);
+        }
+    }
+
+    public class DataStore
+    {
+        private readonly IStoreService _storeservice;
+
+        //Injection de dépendance au niveau du constructeur
+        public DataStore(IStoreService storeservice) {
+            _storeservice = storeservice;
+        }
+
+        public void SaveData(string data) 
+        {
+            _storeservice.Store(@"C:\temp\data.txt", data);
+        }
+    }
