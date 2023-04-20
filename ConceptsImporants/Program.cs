@@ -15,23 +15,20 @@ namespace ConceptsImporants
     {
         static void Main(string[] args)
         {
-            string datestr = "20/04/2023";
-            DateTime date = datestr.ToDate();
-
+            double a = 45;
+            double b = 10;
+            Operation((x, y) => x - y, a, b);
+            Console.ReadLine();
         }
-    }
-
-
-    static public class StringExtension
-    {
-        static public DateTime ToDate(this String str)
+        static void Operation(Func<double,double,double> func,double a,double b)
         {
-            DateTime result;
-            string [] segements = str.Split('/');
-            result = new DateTime(int.Parse(segements[2]), int.Parse(segements[1]), int.Parse(segements[0]));
-            return result;
+            double resultat = func.Invoke(a, b);
+            Console.WriteLine(resultat);
         }
     }
+
+
+   
 
 }
 
