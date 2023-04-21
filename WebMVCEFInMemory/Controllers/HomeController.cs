@@ -8,13 +8,11 @@ namespace WebMVCEFInMemory.Controllers
     {
         private readonly ProductContext _context;
 
+        //Injection de dépendance au niveau du constructeur
         public HomeController(ProductContext context)
         {
            _context = context;
-            _context.Categories.Add(new Category { Id = 1, Name = "Voitures" });
-
-            
-
+          
         }
 
         public IActionResult Index()
@@ -23,6 +21,7 @@ namespace WebMVCEFInMemory.Controllers
             _context.Products.Add(new Product { Id = 1, Name = "Mercedes", Price = 55000 });
             _context.Products.Add(new Product { Id = 2, Name = "BMW", Price = 20000 });
             _context.Products.Add(new Product { Id = 3, Name = "Opel", Price = 23000 });
+            _context.SaveChanges();
             return View(model);
         }
         

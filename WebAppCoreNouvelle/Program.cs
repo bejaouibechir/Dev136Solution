@@ -52,18 +52,21 @@ else if(app.Environment.IsProduction()) //Le contexte de production
 ;
 
 //Middleware 1  app.UseMiddleware1();
-    //app.Use(async (context, next) =>
-    //{
-    //    ;//traitement de la requete niveau middleware 1
-    //    Debug.WriteLine("traitement de la requete niveau middleware 1");
-    //    await next ();
-    //    ;//traitement de la reponse niveau middleware 1
-    //    Debug.WriteLine("traitement de la reponse niveau middleware 1");
-    //});
+//app.Use(async (context, next) =>
+//{
+//    ;//traitement de la requete niveau middleware 1
+//    Debug.WriteLine("traitement de la requete niveau middleware 1");
+//    await next ();
+//    ;//traitement de la reponse niveau middleware 1
+//    Debug.WriteLine("traitement de la reponse niveau middleware 1");
+//});
 
 //app.UseMiddleware1();
 
-//app.UseMonMiddleWare();
+
+
+
+app.UseMonMiddleWare();
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
